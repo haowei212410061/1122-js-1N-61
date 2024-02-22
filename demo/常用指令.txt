@@ -4,4 +4,3 @@ git config --global user.name "haowei212410061"
 
 git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --after="2024-02-21"
 
-sass --watch demo/w12_portfolio_61/scss:demo/w12_portfolio_61/csss
