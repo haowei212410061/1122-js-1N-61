@@ -8,7 +8,7 @@ let turn = 0; //陣列的index
 let done = false;
 
 const reset = () => {
-    allLi.forEach((item)=>{   //javascript中用於迭代數組的函數 該函數按順序為每個數組執行一次提供的函數
+    allLi.forEach((item)=>{   //javascript中用於調用數組中的每個元素
         item.classList = '';
         item.textContent = '+';
     })
