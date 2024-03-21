@@ -1,6 +1,7 @@
 import {menu} from './data_61.js';
 
 console.log('menu',menu);
+const ContainerButtons = document.querySelector('.btn-container');
 
 const sectionCenter = document.querySelector('.section-center')
 
@@ -33,6 +34,24 @@ const displayMenuItems = (menu) =>{
 
 }
 
+
+const categories = ['all','breakfast','lunch','dinner','shakes']
+const displayMenuButtons = () =>{
+  let displayAllButtons = categories.map((item)=>{
+    const {all,breakfast,lunch,dinner,shakes} = item;
+    return `
+    <button type="button" class="filter-btn" data-id="${item}">${item}</button>
+    `
+  }).join('');
+  console.log('displayMenuButtons', displayAllButtons);
+  ContainerButtons.innerHTML = displayAllButtons;
+
+}
+
 window.addEventListener('DOMContentLoaded',()=>{
     displayMenuItems(menu);
 })
+window.addEventListener('DOMContentLoaded',()=>{
+  displayMenuButtons(categories);
+}
+)
