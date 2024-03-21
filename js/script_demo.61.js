@@ -86,7 +86,7 @@ function showdemo(week) {
             p.innerHTML = `<iframe src="./demo/w04_basics_61/p5_61/p5_61.html" width="100%" height="100%" /></iframe>`;
             break;
         case 'w4-p6':
-            p.innerHTML = `<iframe src="./demo/w04_basics_61/p6_61/p6_61.html" width="100%" height="100%" /></iframe>`;
+            p.innerHTML = `<iframe src="./demo/w04_basics_61/p6_bmi_61/p6_61.html" width="100%" height="100%" /></iframe>`;
             break;
         case 'w5':
             p.innerHTML = `<iframe src="./demo/w05_61/index.html" width="100%" height="100%" /></iframe>`;
