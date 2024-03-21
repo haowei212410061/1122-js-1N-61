@@ -5,7 +5,7 @@ const menuClosed = menu.querySelector('.menu-mobile-close');
 const menuTrigger = document.querySelector('.menu-mobile-trigger');
 const menuOverlay = document.querySelector('.overlay');
 let subMenu;
-menuSection.addEventListener('click', (e)=>{
+menuSection.addEventListener('click', (e) => {
     if (!menu.classList.contains('active')) {
         return;
     }
@@ -15,19 +15,19 @@ menuSection.addEventListener('click', (e)=>{
     }
 }
 );
-menuArrow.addEventListener('click', ()=>{
+menuArrow.addEventListener('click', () => {
     hideSubMenu();
 }
 );
-menuTrigger.addEventListener('click', ()=>{
+menuTrigger.addEventListener('click', () => {
     toggleMenu();
 }
 );
-menuClosed.addEventListener('click', ()=>{
+menuClosed.addEventListener('click', () => {
     toggleMenu();
 }
 );
-menuOverlay.addEventListener('click', ()=>{
+menuOverlay.addEventListener('click', () => {
     toggleMenu();
 }
 );
@@ -45,14 +45,14 @@ function showSubMenu(hasChildren) {
 }
 function hideSubMenu() {
     subMenu.style.animation = 'slideRight 0.5s ease forwards';
-    setTimeout(()=>{
+    setTimeout(() => {
         subMenu.classList.remove('active');
     }
-    , 300);
+        , 300);
     menu.querySelector('.menu-mobile-title').innerHTML = '';
     menu.querySelector('.menu-mobile-header').classList.remove('active');
 }
-window.onresize = function() {
+window.onresize = function () {
     if (this.innerWidth > 991) {
         if (menu.classList.contains('active')) {
             toggleMenu();
@@ -87,6 +87,9 @@ function showdemo(week) {
             break;
         case 'w4-p6':
             p.innerHTML = `<iframe src="./demo/w04_basics_61/p6_61/p6_61.html" width="100%" height="100%" /></iframe>`;
+            break;
+        case 'w5':
+            p.innerHTML = `<iframe src="./demo/w05_61/index.html" width="100%" height="100%" /></iframe>`;
             break;
     }
 }
