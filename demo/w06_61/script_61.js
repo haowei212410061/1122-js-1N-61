@@ -41,21 +41,33 @@ const menuCategories = new Set(menu.map((item) => {
   return item.category;
 }));
 
-console.log(menuCategories);
+
 const categories = ['all',...menuCategories];
 
-console.log(categories);
-const displayMenuButtons = () =>{
-  let displayAllButtons = categories.map((item)=>{
-    const {all,breakfast,lunch,dinner,shakes} = item;
+const displayMenuButtons = () => {
+  const displayAllButtons = categories.map((item) => {
     return `
-    <button type="button" class="filter-btn" data-id="${item}">${item}</button>
-    `
+      <button type="button" class="filter-btn" data-id="${item}">${item}</button>
+    `;
   }).join('');
-  console.log('displayMenuButtons', displayAllButtons);
+
   ContainerButtons.innerHTML = displayAllButtons;
 
-}
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const category = e.currentTarget.dataset.id;
+      const filterMenu = menu.filter((item) => item.category === category); // Added a return statement here
+      if (category === 'all') {
+        displayMenuItems(menu);
+      } else {
+        displayMenuItems(filterMenu);
+      }
+    });
+  });
+};
+
 
 window.addEventListener('DOMContentLoaded',()=>{
     displayMenuItems(menu);
@@ -63,4 +75,4 @@ window.addEventListener('DOMContentLoaded',()=>{
 window.addEventListener('DOMContentLoaded',()=>{
   displayMenuButtons(categories);
 }
-)
+) 

@@ -18,7 +18,7 @@ export const menu=[
     {
         id:3,
         title:'godzilla milkshake',
-        category:'breakfast',
+        category:'shakes',
         price:6.99,
         img:'./images/item-3.jpeg',
         desc:"ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral."
@@ -34,7 +34,7 @@ export const menu=[
     {
         id:5,
         title:'egg attack',
-        category:'breakfast',
+        category:'shakes',
         price: 22.99,
         img:'./images/item-5.jpeg',
         desc:" ranzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up"
@@ -58,7 +58,7 @@ export const menu=[
     {
         id:8,
         title:'american classic',
-        category:'breakfast',
+        category:'dinner',
         price: 12.99,
         img:'./images/item-8.jpeg',
         desc:" on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut"
@@ -66,14 +66,14 @@ export const menu=[
     {
         id:9,
         title:'quarantine buddy',
-        category:'breakfast',
+        category:'shakes',
         price: 16.99,
         img:'./images/item-9.jpeg',
         desc:" skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing."
     },{
         id:10,
         title:'bison steak',
-        category:'breakfast',
+        category:'lunch',
         price: 22.99,
         img:'./images/item-10.jpeg',
         desc:"  skateboard fam synth authentic semiotics. Live-edge lyft af,edison bulb yuccie crucifix microdosing."
