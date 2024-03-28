@@ -42,7 +42,7 @@ export const menu=[
     {
         id:6,
         title:'oreo dream',
-        category:'dinner',
+        category:'breakfast',
         price: 18.99,
         img:'./images/item-6.jpeg',
         desc:" Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday"
@@ -50,7 +50,7 @@ export const menu=[
     {
         id:7,
         title:'bacon overflow',
-        category:'lunch',
+        category:'breakfast',
         price: 8.99,
         img:'./images/item-7.jpeg',
         desc:" carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird"
@@ -73,7 +73,7 @@ export const menu=[
     },{
         id:10,
         title:'bison steak',
-        category:'shakes',
+        category:'breakfast',
         price: 22.99,
         img:'./images/item-10.jpeg',
         desc:"  skateboard fam synth authentic semiotics. Live-edge lyft af,edison bulb yuccie crucifix microdosing."
