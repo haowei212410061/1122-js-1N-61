@@ -93,7 +93,7 @@ function showdemo(week) {
       p.innerHTML = `<iframe src="./demo/期中考/p2_61/p2_61.html" width="100%" height="100%" /></iframe>`;
       break;
     case 'P3':
-      p.innerHTML = `<iframe src="./demo/期中考/p1_61/p1_61.html" width="100%" height="100%" /></iframe>`;
+      p.innerHTML = `<iframe src="./demo/期中考/p3_61/p3_61.html" width="100%" height="100%" /></iframe>`;
       break;
   }
 }
