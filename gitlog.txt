@@ -1,0 +1,51 @@
+da8ae33	haowei0218	Thu Mar 28 23:11:38 2024 +0900	md
+6f74d75	haowei0218	Thu Mar 28 23:10:18 2024 +0900	md
+2fbe76b	haowei0218	Thu Mar 28 23:09:02 2024 +0900	git log
+a5f7cfb	haowei0218	Thu Mar 28 23:07:10 2024 +0900	implement close modals
+623d2ae	haowei0218	Thu Mar 28 23:05:52 2024 +0900	implement open modals
+c4e3a82	haowei0218	Thu Mar 28 23:04:34 2024 +0900	implement filter buttons
+32593bf	haowei0218	Thu Mar 28 21:17:07 2024 +0900	w06-P2: Display menu buttons from categories data_61.js
+9573d3c	haowei0218	Thu Mar 28 21:01:31 2024 +0900	W06-P1: Create categories dynamically from data_61.js
+aa8c83a	haowei0218	Thu Mar 21 22:20:21 2024 +0900	git log
+47e2e7c	haowei0218	Thu Mar 21 22:18:39 2024 +0900	display menu buttons with vercel
+53624e4	haowei0218	Thu Mar 21 22:17:11 2024 +0900	### W05-P4: Display Menu buttons from categories array (do it by yourself)
+9784509	haowei0218	Thu Mar 21 21:54:33 2024 +0900	w05-p3: P5_61 -- Display Menu Items from menu json array on both local and vercel
+e1d68bd	haowei0218	Thu Mar 21 21:54:10 2024 +0900	w05-p3: P5_61 -- Display Menu Items from menu json array on both local and vercel
+4383b79	haowei0218	Thu Mar 21 21:50:03 2024 +0900	fix vercel
+4a727b7	haowei0218	Thu Mar 21 21:43:36 2024 +0900	w05-p3: P5_61 -- Display Menu Items from menu json array on both local and vercel
+9641f8c	haowei0218	Thu Mar 21 21:42:52 2024 +0900	w05-p3: P5_61 -- Display Menu Items from menu json array on both local and vercel
+1526cba	haowei0218	Thu Mar 21 20:57:51 2024 +0900	Show W05-P1 in Vercel, add github and globe icons for Github and Vercel
+7c580f2	haowei0218	Thu Mar 21 20:55:43 2024 +0900	W05-p1: Use megamenu to show class demo w1~W4 locally
+4b816b0	haowei0218	Thu Mar 21 20:54:45 2024 +0900	W05-p1: Use megamenu to show class demo w1~W4 locally
+b32b83b	haowei0218	Thu Mar 21 20:24:49 2024 +0900	git vercel
+3637711	haowei0218	Thu Mar 14 22:31:16 2024 +0900	git log
+f1948f3	haowei0218	Thu Mar 14 22:30:50 2024 +0900	W04-P4: P6_61 -- BMI Compute with Suggestion
+593b825	haowei0218	Thu Mar 14 21:16:54 2024 +0900	P5_61 -- Display 5 tours from data_xx.js (json array)
+48ada92	haowei0218	Thu Mar 14 20:58:36 2024 +0900	P5_61 -- Tours display two fixed data
+24215ce	haowei0218	Thu Mar 14 20:08:26 2024 +0900	counter demo
+bf7e0ad	haowei0218	Thu Mar 7 22:06:41 2024 +0900	update pdf
+5462f27	haowei0218	Thu Mar 7 22:06:12 2024 +0900	fix p2 issue
+346e7f1	haowei0218	Thu Mar 7 21:52:10 2024 +0900	git log
+dcdf431	haowei0218	Thu Mar 7 21:51:08 2024 +0900	Compute highest and lowest score of sdata and students2
+80dd9b3	haowei0218	Thu Mar 7 21:19:15 2024 +0900	import sdata and students data from data.js
+e41a945	haowei0218	Thu Mar 7 21:18:13 2024 +0900	From F to C
+e33a9e0	haowei0218	Thu Mar 7 21:17:38 2024 +0900	From C to F
+5434e60	haowei0218	Thu Mar 7 20:08:43 2024 +0900	Merge branch 'main' of https://github.com/haowei212410061/1122-js-1N-61
+c5227f1	haowei0218	Thu Mar 7 20:08:39 2024 +0900	Temperature convert
+f67452b	haowei0218	Fri Mar 1 12:06:11 2024 +0800	javascript 註釋
+3bf5441	haowei0218	Fri Mar 1 10:51:05 2024 +0800	Update tictactoe.js
+650e350	haowei0218	Thu Feb 29 20:54:37 2024 +0800	git log
+8297a8d	haowei0218	Thu Feb 29 20:53:37 2024 +0800	tie game
+254b96c	haowei0218	Thu Feb 29 20:53:14 2024 +0800	player x win
+abe966f	haowei0218	Thu Feb 29 20:52:41 2024 +0800	player o win
+f253d6d	haowei0218	Thu Feb 29 19:57:48 2024 +0800	implement reset button
+42e21ab	haowei0218	Thu Feb 29 19:01:12 2024 +0800	show tictactoe css
+01faa6c	haowei0218	Thu Feb 29 19:00:07 2024 +0800	showItctactoe css
+d7a06dd	haowei0218	Thu Feb 22 21:58:17 2024 +0800	implement multiply function
+7a5d2a1	haowei0218	Thu Feb 22 21:56:05 2024 +0800	implement add function
+a90b0ca	haowei0218	Thu Feb 22 21:52:47 2024 +0800	w01 git log
+a132751	haowei0218	Thu Feb 22 21:50:59 2024 +0800	### W01-P5: implement divide function
+b33a28b	haowei0218	Thu Feb 22 19:40:06 2024 +0800	show the w01-dom title
+2be732f	haowei0218	Thu Feb 22 19:37:20 2024 +0800	show the w01-dom title
+01ebefb	haowei0218	Thu Feb 22 19:34:59 2024 +0800	show the w01-dom title
+a926dd6	haowei0218	Thu Feb 22 19:31:59 2024 +0800	show the w01-dom title
