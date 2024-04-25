@@ -25,3 +25,5 @@ VALUES
 (10,'Modern Bookshelf',8.99,'Marcos','./images/product-10.jpg' ,''),
 (11,'Albany Table',79.99,'Marcos','./images/product-11.jpg' ,''),
 (12,'Leather Sofa',39.95,'Liddy','./images/product-12.jpg' ,'')
+
+(20,'Leather Sofa',39.95,'Liddy','./images/product-20.jpg' ,'./remote_img-1.jpg')
