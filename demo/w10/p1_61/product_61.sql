@@ -4,7 +4,7 @@ CREATE TABLE product_61(
     price real,
     category varchar(255),
     img varchar(255),
-    remote_img varchar(255)
+    remote_url text
     
 )
 
