@@ -1,4 +1,3 @@
-//import { products_xx, all_products_xx } from './p1_data_61.js';
 
 import { _supabase } from './client.supabase_61.js';
 
@@ -16,16 +15,16 @@ const productContainer = document.querySelector('.products-container');
 
 const DisplayProducts = (products) => {
   let productsContent = products.map((product) => {
-    const { id, title, price, category, img, remote_url } = product;
+    const { title, price, localImg } = product;
     return `
       <div class="single-product">
         <img
-          src="${img}"
+          src="${localImg}"
           class="single-product-img img"
           alt="${title}"
         />
         <footer>
-          <h3 class="name">${title} (${id})</h3>
+          <h3 class="name">${title} </h3>
           <span class="price">${price}</span>
         </footer> 
       </div>
