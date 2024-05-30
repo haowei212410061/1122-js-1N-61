@@ -95,5 +95,8 @@ function showdemo(week) {
     case 'P3':
       p.innerHTML = `<iframe src="./demo/期中考/p3_61/p3_61.html" width="100%" height="100%" /></iframe>`;
       break;
+    case 'project':
+      p.innerHTML = `<iframe src="./project/products_supa_61.html" width="100%" height="100%" /></iframe>`;
+      break;
   }
 }
