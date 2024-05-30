@@ -1,10 +1,9 @@
 
 import { _supabase } from './client.supabase_61.js';
-let product_61 
+let product_61 = []
 const getProductsSupabase_61 = async () => {
   try {
-    let { data, error } = await _supabase.from('product_61').select('*');
-    console.log('products_data', data);
+    let { data, error } = await _supabase.from('product_61').select('*,company_61(*)');
     return data; // return the fetched data, not product_61
   } catch (error) {
     console.log(error);
@@ -38,16 +37,17 @@ const DisplayProducts = (products) => {
 companyBtns.forEach((btn)=>{
   btn.addEventListener('click',async(e)=>{
     const companyName = e.currentTarget.dataset.id;
+    const products = await getProductsSupabase_61();
     console.log(companyName);
     if(companyName === 'all'){
-      await getProductsSupabase_61();
+      product_61 = products;
+      
     }else{
-      let {data:company,error} = await _supabase.from('company_61').select('id').eq('name',companyName)
-      console.log(company[0].id);
-      const companyId = company[0].id
-
-      let {data,error:product} = await _supabase.from('product_61').select('*').eq('companyId',companyId);
-      console.log(data)
+      product_61 = products.filter((product)=>
+        product.company_61.name === companyName      
+      )
+      console.log(product_61)
+      DisplayProducts(product_61);
     }
   })
 })
