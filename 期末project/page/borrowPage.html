@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Document</title>
+         <link rel="stylesheet" href="../style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+         <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Poetsen+One&display=swap"
+                  rel="stylesheet">
+</head>
+
+<body>
+
+         <h3>借閱紀錄管理</h3>
+
+         <div class="allbutton">
+                  <div class="filter_borrow">
+                           <select name="" class="filter_info">
+                                    <option disabled selected>請選擇以下選項</option>
+                                    <option value="user_id">使用者</option>
+                                    <option value="id">書本編號</option>
+                                    <option value="borrow_status">借閱狀態</option>
+                           </select>
+
+                           <input class="searchInput" type="text" placeholder="搜尋" value=""
+                                    oninput="if(value>999999999)value=999999999;if(value<0)value=0">
+                  </div>
+         </div>
+         <div class="search__book_btn">
+                  <button class="search_btn">搜尋</button>
+                  <button class="search_all">搜尋全部</button>
+                  <button class="reset_btn">重設</button>
+                  <button class="next_btn">Next</button>
+                  <button class="last_btn">Last</button>
+
+         </div>
+         <ul class="tableTitle">
+                  <li class="table_id">借閱編號</li>
+                  <li class="table_name">書本編號</li>
+                  <li class="table_author_name">使用者</li>
+                  <li class="table_classification">借閱狀態</li>
+                  <li class="table_action">借閱時間</li>
+         </ul>
+         <div class="Datalist">
+                  <div class="data_status">
+                           <div class="data_icon"><i class="fa-solid fa-robot"></i></div>
+                           <p>No data</p>
+                  </div>
+                  <table class="all_borrow_data">
+
+                  </table>
+         </div>
+         <div class="overlay hidden"></div>
+         <div class="loading hidden"></div>
+
+         <script src="../js/borrow.js"></script>
+
+
+</body>
+
+</html>

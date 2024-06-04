@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>system</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Poetsen+One&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="web">
+        <nav class="menu">
+            <div class="title">
+                <div class="icon"><i class="fa-solid fa-computer"></i></div>
+                <h2>圖書管理系統</h2>
+
+            </div>
+
+            <div class="btn">
+                <select name="Language" class="Language">
+                    <option disabled selected>語言</option>
+                    <option value="繁體中文" class="language-1">繁體中文</option>
+                    <option value="英文" class="language-2">英文</option>
+                </select>
+                <select name="User" class="User">
+                    <option disabled selected>使用者</option>
+                    <option value="User1" class="user-1">User1</option>
+                    <option value="User2" class="user-2">User2</option>
+                </select>
+            </div>
+
+        </nav>
+        <div class="main-container">
+            <div class="function_list">
+                <h4>書籍<i class="fa-solid fa-caret-down"></i></h4>
+                <ul class="search_book">
+                    <li class="search_book_list"><i class="fa-solid fa-book"></i>查詢書籍資料</li>
+                    <li class="histroy"><i class="fa-solid fa-book-medical"></i>查詢借閱紀錄</li>
+                    <li class="create"><i class="fa-solid fa-square-plus"></i>新增書籍資料</li>
+                    <li class="create_fast"><i class="fa-solid fa-square-plus"></i>快速新增資料</li>
+                </ul>
+
+            </div>
+
+            <div class="container ">
+                <div class="forHidden">
+                    <h3>管理列表</h3>
+
+                    <div class="allbutton">
+                        <div class="filter_book">
+                            <select name="" class="filter_info">
+                                <option value="book_id">書籍編號</option>
+                                <option value="book_name">書籍名稱</option>
+                                <option value="author_name">書籍作者</option>
+                            </select>
+
+                            <input class="searchInput" type="text" placeholder="搜尋" value=""
+                                oninput="if(value>999999999)value=999999999;if(value<0)value=0">
+                        </div>
+                        <select name="classification" class="classification">
+                            <option disabled selected>請選擇書籍的分類</option>
+                            <option value="文學">文學</option>
+                            <option value="藝術">藝術</option>
+                            <option value="人文">人文</option>
+                            <option value="歷史">歷史</option>
+                            <option value="體育">體育</option>
+                            <option value="奇幻">奇幻</option>
+                            <option value="武俠">武俠</option>
+                            <option value="漫畫">漫畫</option>
+                            <option value="雜誌">雜誌</option>
+                            <option value="愛情">愛情</option>
+                            <option value="恐怖">恐怖</option>
+                        </select>
+                    </div>
+                    <div class="search__book_btn">
+                        <button class="search_btn">搜尋</button>
+                        <button class="reset_btn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                        <button class="perpage-1">next</button>
+                        <button class="perpage-2">last</button>
+                    </div>
+                    <ul class="tableTitle">
+                        <li class="table_id">書本編號</li>
+                        <li class="table_name">書名</li>
+                        <li class="table_author_name">作者</li>
+                        <li class="table_classification">書本分類</li>
+                        <li class="table_action">執行的動作</li>
+                    </ul>
+                    <div class="Datalist">
+
+                        <div class="data_status">
+                            <div class="data_icon"><i class="fa-solid fa-robot"></i></div>
+                            <p>No data</p>
+                        </div>
+                        <table class="data_table">
+
+                        </table>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="create_info hidden"></div>
+    <div class="loading hidden"></div>
+    <div class="popUp hidden"></div>
+    <div class="borrowData hidden">
+        <div class="close">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <div>
+            <h3>借閱紀錄</h3>
+        </div>
+        <table class="Borrow_title">
+            <tr>
+                <th>借閱編號</th>
+                <th>書本編號</th>
+                <th>使用者</th>
+                <th>當前狀態</th>
+                <th>借閱日期</th>
+            </tr>
+        </table>
+
+        <table class="borrow_table">
+
+        </table>
+    </div>
+    <script type="module" src="./index.js"></script>
+
+
+</body>
+
+</html>

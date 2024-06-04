@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+body {
+    top: 0;
+    margin: 0;
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.web {
+    display: grid;
+    width: 100%;
+    height: 100%;
+
+}
+
+/*上方導覽列*/
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid rgba(213, 194, 194, 0.913);
+    background: #535151;
+    box-shadow: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+/*圖書管理系統title*/
+.icon {
+    display: block;
+    padding-top: 10px;
+    font-size: 40px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 50px;
+    width: 250px;
+    margin-left: 10px;
+    margin-top: 15px;
+    gap: 8px;
+    color: #fff;
+
+}
+
+
+/*上方導覽列的按鈕*/
+.btn {
+    display: flex;
+    gap: 5px;
+    margin-top: 25px;
+    margin-right: 20px;
+
+
+}
+
+.Language {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    background: #535151;
+    color: #fff;
+    font-size: 15px;
+}
+
+.User {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    background: #535151;
+    color: #fff;
+    border: 3px solid #fff;
+    font-size: 15px;
+}
+
+/*整個網頁下半部的內容 包含container以及左側功能列表*/
+.main-container {
+    display: flex;
+    /*margin-top: 15px;*/
+    margin-right: 50px;
+
+}
+
+/*整個網頁下半部的右半邊內容*/
+.container {
+    width: 100%;
+    height: 80%;
+    margin-top: 100px;
+    background-color: #fff;
+    margin-left: 40px;
+}
+
+.container h3 {
+    font-size: 25px;
+
+}
+
+/*管理列表下的所有按鈕*/
+.allbutton {
+    display: flex;
+    height: 25px;
+    gap: 10px;
+}
+
+/*下拉式選單 可以選擇資料庫的欄位*/
+.filter_info {
+    width: 100px;
+    height: 35px;
+    border: 1px solid #838181;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.filter_info:hover {
+    cursor: pointer;
+    border: 2px solid #859ce7;
+}
+
+/*下拉式選單 選擇書籍的分類*/
+.classification {
+    width: 200px;
+    height: 35px;
+    border: 1px solid #838181;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.classification:hover {
+    cursor: pointer;
+    border: 2px solid #859ce7;
+}
+
+/*輸入匡*/
+.searchInput {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #838181;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+}
+
+.searchInput:hover {
+    cursor: pointer;
+    border: 2px solid #859ce7;
+}
+
+/*搜尋按鈕*/
+.search__book_btn {
+    display: flex;
+    margin-top: 20px;
+    width: 300px;
+    gap: 5px;
+}
+
+.search_btn {
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.search_btn:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+/*重設按鈕*/
+.reset_btn:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+.reset_btn {
+    width: 80px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+/*上一頁 下一頁*/
+.next_btn:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+.next_btn {
+    width: 80px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.last_btn:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+.last_btn {
+    width: 80px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+/*搜尋全部按鈕*/
+
+.search_all {
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+}
+
+.search_all:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+/*上一頁 / 下一頁*/
+.perpage-1 {
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+}
+
+.perpage-1:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+.perpage-2 {
+    width: 80px;
+    height: 40px;
+    background-color: #fff;
+    border: 2px solid rgba(68, 66, 66, 0.913);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+}
+
+.perpage-2:hover {
+    cursor: pointer;
+    background-color: #859ce7;
+}
+
+
+
+/*分頁顯示內容*/
+.booklist {
+    display: grid;
+    grid-auto-flow: column;
+    list-style: none;
+    width: 300px;
+    height: 25px;
+    text-align: center;
+}
+
+.booklist li {
+    width: 80%;
+    height: 100%;
+    border: 1px solid gray;
+    padding-top: 5px;
+}
+
+.booklist li:hover {
+    background-color: #7c7c7c;
+    cursor: pointer;
+}
+
+
+/*分頁樣式*/
+.pageList {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    top: 1280px;
+    left: -45px;
+    z-index: 4;
+
+}
+
+/*表格*/
+.Datalist {
+    position: relative;
+    top: -21px;
+    width: 100%;
+    height: 68vh;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: 1px solid gray;
+    justify-content: center;
+    align-content: center;
+    z-index: 2;
+}
+
+tbody {
+    position: relative;
+    width: 95%;
+    left: 50px;
+}
+
+.data_table {
+    position: relative;
+    top: 15px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    height: 68vh;
+}
+
+.data_table td span {
+    font-size: 20px;
+}
+
+.Datalist tr {
+    position: relative;
+    top: 2;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    list-style: none;
+    text-justify: auto;
+    text-align: center;
+
+}
+
+
+.Datalist tr td {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-right: 100px;
+}
+
+.tableTitle {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    margin-top: 20px;
+    margin-right: 50px;
+    padding-top: 8px;
+    text-align: center;
+    padding-right: 2px;
+    background-color: #b1b1b1;
+
+
+}
+
+.tableTitle li {
+    width: 100%;
+    padding-right: 80px;
+
+}
+
+.table_id {
+    color: rgb(24, 95, 229);
+}
+
+/**左側功能欄位*/
+.function_list {
+    width: 350px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.function_list h4 {
+    display: flex;
+    gap: 5px;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+.function_list i:hover {
+    cursor: pointer;
+
+}
+
+.function_list ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.function_list ul li:hover {
+    color: #2d52cc;
+    cursor: pointer;
+}
+
+/*根據後端是否撈取到資料 在表格內顯示或隱藏*/
+.data_status {
+    display: grid;
+    position: relative;
+    top: 190px;
+    width: 100px;
+    height: 115px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px gray;
+    margin: 0 auto;
+}
+
+.data_icon {
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    padding-left: 13px;
+}
+
+.data_status p {
+    font-size: 25px;
+
+}
+
+.hidden {
+    display: none;
+}
+
+/**加載動畫*/
+
+.loading {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 16px solid rgb(255, 255, 255);
+    border-top: 16px solid rgb(44, 90, 206);
+    border-bottom: 16px solid rgb(44, 90, 206);
+    border-radius: 50%;
+    animation: Search_loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    z-index: 10;
+}
+
+@keyframes Search_loading {
+    0% {
+        transform: rotateZ(40deg);
+    }
+
+    12.5% {
+        transform: rotateZ(80deg);
+    }
+
+    25% {
+        transform: rotateZ(120deg);
+    }
+
+    37.5% {
+        transform: rotateZ(160deg);
+    }
+
+    50% {
+        transform: rotateZ(200deg);
+    }
+
+    62.5% {
+        transform: rotateZ(240deg);
+    }
+
+    75% {
+        transform: rotateZ(280deg);
+    }
+
+    87.5% {
+        transform: rotateZ(320deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+/*點擊按鈕後 網頁背景變成有點透明的黑色*/
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4) fixed;
+    background-size: cover;
+    z-index: 5;
+}
+
+/*手動新增資料的樣式*/
+
+.create_info {
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    width: 420px;
+    height: 550px;
+    z-index: 10;
+    margin: 0 auto;
+    border: 1px solid rgb(135, 129, 129);
+    border-radius: 5px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.create-list {
+    position: relative;
+    display: grid;
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    left: 20%;
+    background-color: #fff
+}
+
+.create-list input {
+    width: 80%;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid rgb(209, 208, 208);
+}
+
+.create-list button {
+    width: 82%;
+    height: 30px;
+    border-radius: 2px;
+    border: 1px solid rgb(209, 208, 208);
+}
+
+
+
+.create_info h3 {
+    position: relative;
+    top: 18%;
+    left: 40%;
+}
+
+.create-list {
+    position: relative;
+    display: grid;
+}
+
+.close-btn {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 0px;
+    top: 20px;
+    left: 80%;
+    font-size: 20px;
+
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    color: rgb(44, 90, 206);
+}
+
+.create-btn:hover {
+    cursor: pointer;
+    background-color: rgb(44, 90, 206);
+}
+
+.hidden {
+    display: none;
+}
+
+/**刪除彈窗樣式*/
+
+.popUp {
+    position: absolute;
+    width: 400px;
+    height: 150px;
+    background-color: #e2e1e1;
+    top: 200px;
+    left: 550px;
+    z-index: 12;
+
+}
+
+.delete_title {
+    position: absolute;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: 2px solid #fff;
+}
+
+.close_delete {
+    position: absolute;
+    font-size: 18px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    left: 360px;
+    top: 10px;
+}
+
+.delete_content {
+    position: absolute;
+    top: 50px;
+    left: 90px;
+}
+
+.button_list {
+    position: absolute;
+    top: 120px;
+    left: 300px;
+}
+
+.button_list button {
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.button_list button:hover {
+    background-color: #2d52cc;
+    cursor: pointer;
+}
+
+/*借閱紀錄的視窗*/
+.borrowData {
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 350px;
+    width: 800px;
+    height: 600px;
+    border: 1px solid #b1b1b1;
+    box-shadow: 8px 8px 8px 8px #7c7c7c;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.borrowData h3 {
+    position: absolute;
+    left: 350px;
+    font-size: 20px;
+}
+
+
+
+.borrowData .close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    position: absolute;
+    left: 750px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.borrowData .close:hover {
+    cursor: pointer;
+    color: #2d52cc;
+}
+
+.Borrow_title {
+    position: absolute;
+    left: 40px;
+    top: 70px;
+}
+
+.Borrow_title th {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.borrow_table {
+    display: grid;
+    position: absolute;
+    width: 750px;
+    height: 550px;
+    top: 120px;
+    left: 68px;
+}
+
+.borrow_table td {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    padding-right: 30px;
+}
+
+.borrow_table th {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+}
+
+/*借閱紀錄頁面的table*/
+.all_borrow_data {
+    position: relative;
+    width: 1100px;
+    top: -80px;
+    left: 10px;
+}
+
+.all_borrow_data td {
+    width: 150px;
+    height: 30px;
+    padding-left: 20px;
+    text-decoration: 20px;
+}
+
+.all_borrow_data span {
+    font-size: 20px;
+}
+
+.all_borrow_data th {
+    width: 150px;
+    height: 30px;
+}
+
+/**bookData page borrow record style**/
+.borrowData_bookPage {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 800px;
+    height: 400px;
+    border: 1px solid #b1b1b1;
+    box-shadow: 8px 8px 8px 8px #7c7c7c;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.borrowData_bookPage h3 {
+    position: absolute;
+    left: 350px;
+    font-size: 20px;
+}
+
+
+
+.borrowData_bookPage .close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    position: absolute;
+    left: 750px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.borrowData_bookPage .close:hover {
+    cursor: pointer;
+    color: #2d52cc;
+}
+
+.Borrow_title {
+    position: absolute;
+    left: 40px;
+    top: 70px;
+}
+
+.Borrow_title th {
+    width: 120px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.borrow_table {
+    display: grid;
+    position: absolute;
+    width: 750px;
+    height: 550px;
+    top: 120px;
+    left: 68px;
+}
+
+.borrow_table td {
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    padding-right: 30px;
+}
+
+.borrow_table th {
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+}
