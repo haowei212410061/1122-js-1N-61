@@ -35,6 +35,7 @@ Note:
    req.query.userId = 5986544
    req.params = https://localhost:3000/:user => https://localhost:3000/5896544
    req.params = 5986544
+   且這是一個動態路由 req.params用於取得路由中動態的部分
 7. 關聯表刪除要先刪除foreign key那張表的資料 再刪除primary key那張表的資料
 8. 關聯表更新：在primary key表先插入一筆新的資料同步foreign key的資料 最後刪除舊資料 
 
