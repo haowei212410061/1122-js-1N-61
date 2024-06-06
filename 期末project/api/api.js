@@ -30,7 +30,8 @@ app.listen(PORT, () => {
  * 提醒:每次改code前 先停止後端運作 改完後再啟動
  */
 /**
- * @route 創建一筆完整的資料
+ * @route POST /api/post/book/book_id/book_name/author_name/classification
+ * @todo 創建一筆完整的資料
  */
 app.post(
   "/api/post/book/:book_id/:book_name/:author_name/:classification",
@@ -67,10 +68,9 @@ app.post(
 /**---------------------------------------------------------------------- */
 
 /**
- * 撈出table的所有資料
  * @route GET /api/table
  * @return {JSON}
- *
+ * @todo 撈出booksdata表的所有紀錄
  */
 app.get("/api/table", async (req, res) => {
   try {
@@ -83,8 +83,8 @@ app.get("/api/table", async (req, res) => {
 });
 
 /**
- * 查詢指定欄位的資料
  * @route GET /api/column/searchdata
+ * @todo 查詢booksdata的表 指定欄位下的資料
  */
 app.get("/api/:column/:searchdata", async (req, res) => {
   try {
@@ -101,8 +101,8 @@ app.get("/api/:column/:searchdata", async (req, res) => {
 });
 
 /**
- * 更新資料庫內資料
  * @route PUT /api/:book_id/:book_name/:author/:classification
+ * @todo 更新兩張表的資料
  */
 app.put(
   "/api/update/:filterId/:id/:bookName/:author/:Updateclass",
@@ -138,8 +138,8 @@ app.put(
 );
 
 /**
- * @todo 新增一筆借閱紀錄
  * @route POST /api/borrow_id/book_id/user_id/status/date
+ * @todo 新增一筆借閱紀錄
  */
 app.post(
   "/api/post/borrowRecord/:BrNum/:Bid/:user/:status/:date",
@@ -177,7 +177,7 @@ app.post(
 
 /**
  * @route GET /api/borrowRecord
- * @todo 查詢所有書籍的借閱紀錄
+ * @todo 查詢所有的借閱紀錄
  */
 app.get("/api/borrowRecord", async (req, res) => {
   try {
@@ -192,7 +192,7 @@ app.get("/api/borrowRecord", async (req, res) => {
 
 /**
  * @route GET /api/borrowRecord/:book_id
- * @todo 查詢指定書籍的借閱紀錄
+ * @todo 查詢指定書籍編號的借閱紀錄
  */
 
 app.get("/api/v2/borrowRecord/book_id=:bookId", async (req, res) => {
@@ -213,6 +213,7 @@ app.get("/api/v2/borrowRecord/book_id=:bookId", async (req, res) => {
 
 /**
  * @route DELETE /api/v1/borrowRecord/:column=$:borrowData
+ * @todo 刪除兩張表的紀錄
  */
 app.delete("/api/delete/v1/borrowRecord/:borrowData", async (req, res) => {
   try {
@@ -225,6 +226,10 @@ app.delete("/api/delete/v1/borrowRecord/:borrowData", async (req, res) => {
   }
 });
 
+/**
+ * @route GET /api/v3/borrowRecord/column/result
+ * @todo 查詢借閱紀錄的表 指定欄位下的資料
+ */
 app.get("/api/v3/borrowReocrd/:column/:result", async (req, res) => {
   try {
     const { column, result } = req.params;
