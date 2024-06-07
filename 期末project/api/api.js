@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 app.use(express.json());
+require("dotenv").config();
 
 /**導入supabaseAPI and supabaseURL */
 const { createClient } = require("@supabase/supabase-js");
@@ -14,14 +15,14 @@ const supabase = createClient(supabase_url, supabase_api);
 
 /**創建HTTP伺服器 */
 const http = require("http");
-const { filter } = require("lodash");
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-type": "text/plain" });
   res.end("hello world\n");
 });
 
 /**監聽端口 */
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const rend_url = process.env.REND_URL;
 app.listen(PORT, () => {
   console.log(`listen ${PORT}`);
 });

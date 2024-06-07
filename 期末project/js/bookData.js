@@ -14,6 +14,7 @@ const reset_btn = document.querySelector(".reset_btn");
 const BorrowWindows = document.querySelector(".borrowData_bookPage");
 const Borrow_container = document.querySelector(".borrow_table");
 const close_btn = document.querySelector(".close");
+const Render_url = "https://library-system-x1f7.onrender.com/";
 let itempage = 0;
 /**-----------------------------------------------------------
 
@@ -75,7 +76,7 @@ function DisplayContent(database) {
     });
     record_btn.addEventListener("click", async () => {
       const response = await FetchApi(
-        `http://localhost:3000/api/v2/borrowRecord/book_id=${bookId}`,
+        `${Render_url}api/v2/borrowRecord/book_id=${bookId}`,
         "GET"
       );
       const DataArray = Object.values(response)
@@ -113,7 +114,7 @@ function DisplayContent(database) {
  * @param {string } url 請求url
  * @param {GET} method 請求方法
  * @returns {JSON}
- * @example FetchApi('http://localhost:3000/api,"GET")
+ * @example FetchApi('${Render_url}api,"GET")
  * 注意:不適用Post,Delete 因為不會回傳data
  */
 async function FetchApi(url, method) {
@@ -137,11 +138,11 @@ async function FetchApi(url, method) {
  */
 async function PerpageDisplayData(Page, data) {
   try {
+    let new_response = Object.values(data);
     const limit = 10;
     const start = (Page - 1) * limit;
     const end = start * limit;
     let response_length = Object.values(data).length;
-    let new_response = Object.values(data);
     /**
      * 判斷回傳的資料長度是否大於limit
      * @param {number} response_length
@@ -240,7 +241,7 @@ async function CreateInfo(title, data) {
         result_Class.style.border = "1px solid red";
       }
       const response = await fetch(
-        `http://localhost:3000/api/${result_Id.value}/${result_Name.value}/${
+        `${Render_url}api/${result_Id.value}/${result_Name.value}/${
           result_Author.value
         }/${encodeURI(result_Class.value)}`,
         { method: "POST" }
@@ -248,6 +249,10 @@ async function CreateInfo(title, data) {
       overlay.classList.add("hidden");
       create_container.classList.add("hidden");
       console.log(response);
+      const create_data = await FetchApi(
+        `${Render_url}api/book_id/${result_Id.value}`
+      );
+      DisplayContent(create_data);
     } else if (title === "編輯資料") {
       /** @type {Array.<string>} */
       let datalist = [];
@@ -325,7 +330,7 @@ async function SelectInfoValue() {
     ) {
       data_status.classList.add("hidden");
       const response = await FetchApi(
-        `http://localhost:3000/api/book_id/${Filter_input}`,
+        `${Render_url}api/book_id/${Filter_input}`,
         "GET"
       );
       datacheck(response);
@@ -336,7 +341,7 @@ async function SelectInfoValue() {
     ) {
       data_status.classList.add("hidden");
       const response = await FetchApi(
-        `http://localhost:3000/api/book_name/${Filter_input}`,
+        `${Render_url}api/book_name/${Filter_input}`,
         "GET"
       );
       datacheck(response);
@@ -347,7 +352,7 @@ async function SelectInfoValue() {
     ) {
       data_status.classList.add("hidden");
       const response = await FetchApi(
-        `http://localhost:3000/api/author_name/${Filter_input}`,
+        `${Render_url}api/author_name/${Filter_input}`,
         "GET"
       );
       datacheck(response);
@@ -387,11 +392,18 @@ search_btn.addEventListener("click", async () => {
   if (Filter_input === "") {
     let result = SelectOptionValue();
     const response = await FetchApi(
-      `http://localhost:3000/api/classification/${result}`,
+      `${Render_url}api/classification/${result}`,
       "GET"
     );
     PerpageDisplayData(1, response);
-    itempage += 1;
+    next_btn.addEventListener("click", () => {
+      itemPage += 1;
+      PerpageDisplayData(itemPage, result);
+    });
+    last_btn.addEventListener("click", () => {
+      itemPage -= 1;
+      PerpageDisplayData(itemPage, result);
+    });
   } else {
     SelectInfoValue();
   }
@@ -408,6 +420,7 @@ search_btn.addEventListener("click", async () => {
 function PopUpDeleteWindows(Popup_column) {
   const delete_result = Popup_column;
   PopUpDeleteWindow.classList.remove("hidden");
+  overlay.classList.remove("hidden");
   PopUpDeleteWindow.innerHTML = `
   <div class="delete_title">
     <button class="close_delete">X</button>
@@ -436,25 +449,27 @@ function DeleteApi(delete_column) {
   });
   disable_btn.addEventListener("click", async () => {
     PopUpDeleteWindow.classList.add("hidden");
-    await PerpageDisplayData(itempage, "http://localhost:3000/api/table");
+    await PerpageDisplayData(itempage, "${Render_url}api/table");
   });
   check_btn.addEventListener("click", async () => {
     try {
-      console.log(delete_column);
-      const get_response = await FetchApi(
-        `http://localhost:3000/api/book_id/${delete_column}`,
-        "GET"
+      const get_borrow_response = await fetch(
+        `${Render_url}api/v2/borrowRecord/book_id=${delete_column}`
       );
-      console.log(get_response);
-      await fetch(
-        `http://localhost:3000/api/delete/v1/borrowRecord/${delete_column}`,
-        {
-          method: "DELETE",
-        }
-      );
+      console.log(get_borrow_response);
+      get_borrow_response.status === 200
+        ? await fetch(
+            `${Render_url}api/delete/v1/borrowRecord/${delete_column}`,
+            { method: "DELETE" }
+          )
+        : false;
       console.log("delete success");
       PopUpDeleteWindow.classList.add("hidden");
-      PerpageDisplayData(itempage, `http://localhost:3000/api/table`);
+      overlay.classList.add("hidden");
+      DataTable.innerHTML = "";
+      data_status.classList.remove("hidden");
+      const get_all_data = await FetchApi(`${Render_url}api/table`);
+      console.log(get_all_data);
     } catch (error) {
       console.log(error);
     }
@@ -471,7 +486,7 @@ function DeleteApi(delete_column) {
 async function UpdateApi(filterdata, UpdateArray = Array) {
   try {
     const response = await FetchApi(
-      `http://localhost:3000/api/book_id/${filterdata}`,
+      `${Render_url}api/book_id/${filterdata}`,
       "GET"
     );
 
@@ -510,13 +525,13 @@ async function UpdateApi(filterdata, UpdateArray = Array) {
     create_container.classList.add("hidden");
     overlay.classList.add("hidden");
     const book_response = await fetch(
-      `http://localhost:3000/api/update/${filterdata}/${UpdateArray[0]}/${
+      `${Render_url}api/update/${filterdata}/${UpdateArray[0]}/${
         UpdateArray[1]
       }/${UpdateArray[2]}/${encodeURI(UpdateArray[3])}`,
       { method: "PUT" }
     );
     const UpdateApiData = await FetchApi(
-      `http://localhost:3000/api/book_id/${UpdateArray[0]}`,
+      `${Render_url}api/book_id/${UpdateArray[0]}`,
       "GET"
     );
     console.log(UpdateApiData);
