@@ -847,3 +847,37 @@ tbody {
     height: 40px;
     font-size: 20px;
 }
+
+.PopUpAlertWindows {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 500px;
+    height: 200px;
+    background-color: #dcdcdc;
+    z-index: 13;
+}
+
+.alert_enter_btn {
+    position: absolute;
+    top: 80%;
+    left: 90%;
+    font-size: 30px;
+}
+
+
+.alert_enter_btn span {
+    color: #363636;
+}
+
+.alert_enter_btn span:hover {
+    cursor: pointer;
+    color: #2d52cc;
+}
+
+.alert_content {
+    position: absolute;
+    top: 33%;
+    text-align: center;
+    width: 100%;
+}

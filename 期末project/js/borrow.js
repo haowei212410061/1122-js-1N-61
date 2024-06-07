@@ -60,6 +60,23 @@ function PerpageDisplayData(Page, data) {
     : DisplayData(new_response);
   new_response.length === 0 ? data_status.classList.remove("hidden") : false;
 }
+/**
+ * @function DisplayLoading
+ * @todo 用於網頁執行動作時的顯示動畫
+ */
+function DisplayLoading() {
+  loading.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+/**
+ * @function HiddenLoading
+ * @todo 用於執行完動作時隱藏動畫
+ */
+function HiddenLoading() {
+  loading.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
 
 /**
  * @function ResetFunction
@@ -79,29 +96,34 @@ reset_btn.addEventListener("click", () => {
 async function SearchAPi() {
   if (filterSelect.value === "user_id" && InputBox.value !== "") {
     console.log(filterSelect.value);
+    DisplayLoading();
     const response = await FetchApi(
       `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
+    HiddenLoading();
     console.log(response);
     data_status.classList.add("hidden");
     DisplayData(response);
   } else if (filterSelect.value === "id" && InputBox.value !== "") {
+    DisplayLoading();
     const response = await FetchApi(
       `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
-
+    HiddenLoading();
     console.log(response);
     data_status.classList.add("hidden");
     DisplayData(response);
   } else if (filterSelect.value === "borrow_status" && InputBox.value !== "") {
+    DisplayLoading();
     const response = await FetchApi(
       `${Render_url}/api/v3/borrowReocrd/${
         filterSelect.value
       }/${encodeURIComponent(InputBox.value)}`,
       "GET"
     );
+    HiddenLoading();
     console.log(response);
     data_status.classList.add("hidden");
     DisplayData(response);
@@ -127,7 +149,9 @@ search_all.addEventListener("click", async () => {
   console.log("test");
   itemPage = 1;
 
+  DisplayLoading();
   let result = await SearchAll();
+  HiddenLoading();
   Object.values(result).length > 0
     ? data_status.classList.add("hidden")
     : false;

@@ -15,7 +15,7 @@ const BorrowWindows = document.querySelector(".borrowData_bookPage");
 const Borrow_container = document.querySelector(".borrow_table");
 const close_btn = document.querySelector(".close");
 const Render_url = "https://library-system-x1f7.onrender.com/";
-let itempage = 0;
+let itempage = 1;
 /**-----------------------------------------------------------
 
 /**
@@ -246,12 +246,14 @@ async function CreateInfo(title, data) {
         }/${encodeURI(result_Class.value)}`,
         { method: "POST" }
       );
-      overlay.classList.add("hidden");
-      create_container.classList.add("hidden");
+      response.status !== 200 ? false : loading.classList.add("hidden"),
+        overlay.classList.add("hidden"),
+        create_container.classList.add("hidden");
       console.log(response);
       const create_data = await FetchApi(
         `${Render_url}api/book_id/${result_Id.value}`
       );
+      data_status.classList.add("hidden");
       DisplayContent(create_data);
     } else if (title === "編輯資料") {
       /** @type {Array.<string>} */
@@ -329,10 +331,12 @@ async function SelectInfoValue() {
       Filter_input !== ""
     ) {
       data_status.classList.add("hidden");
+      DisplayLoading();
       const response = await FetchApi(
         `${Render_url}api/book_id/${Filter_input}`,
         "GET"
       );
+      HiddenLoading();
       datacheck(response);
     } else if (
       selectedOption === "book_name" &&
@@ -340,10 +344,12 @@ async function SelectInfoValue() {
       Filter_input !== ""
     ) {
       data_status.classList.add("hidden");
+      DisplayLoading();
       const response = await FetchApi(
         `${Render_url}api/book_name/${Filter_input}`,
         "GET"
       );
+      HiddenLoading();
       datacheck(response);
     } else if (
       selectedOption === "author_name" &&
@@ -351,10 +357,12 @@ async function SelectInfoValue() {
       Filter_input !== ""
     ) {
       data_status.classList.add("hidden");
+      DisplayLoading();
       const response = await FetchApi(
         `${Render_url}api/author_name/${Filter_input}`,
         "GET"
       );
+      DisplayLoading();
       datacheck(response);
     } else {
       FilterInput.style.border = "1px solid red";
@@ -391,19 +399,15 @@ search_btn.addEventListener("click", async () => {
   const Filter_input = FilterInput.value.trim();
   if (Filter_input === "") {
     let result = SelectOptionValue();
+    DisplayLoading();
     const response = await FetchApi(
       `${Render_url}api/classification/${result}`,
       "GET"
     );
-    PerpageDisplayData(1, response);
-    next_btn.addEventListener("click", () => {
-      itemPage += 1;
-      PerpageDisplayData(itemPage, result);
-    });
-    last_btn.addEventListener("click", () => {
-      itemPage -= 1;
-      PerpageDisplayData(itemPage, result);
-    });
+    HiddenLoading();
+    Object.values(response).length === 0
+      ? AlertWindows(`沒有${result}種類的書籍`)
+      : PerpageDisplayData(1, response);
   } else {
     SelectInfoValue();
   }
@@ -453,6 +457,7 @@ function DeleteApi(delete_column) {
   });
   check_btn.addEventListener("click", async () => {
     try {
+      DisplayLoading();
       const get_borrow_response = await fetch(
         `${Render_url}api/v2/borrowRecord/book_id=${delete_column}`
       );
@@ -464,11 +469,13 @@ function DeleteApi(delete_column) {
           )
         : false;
       console.log("delete success");
+      HiddenLoading();
       PopUpDeleteWindow.classList.add("hidden");
       overlay.classList.add("hidden");
       DataTable.innerHTML = "";
       data_status.classList.remove("hidden");
       const get_all_data = await FetchApi(`${Render_url}api/table`);
+      AlertWindows(`書籍編號為${delete_column}的資料已經被刪除`);
       console.log(get_all_data);
     } catch (error) {
       console.log(error);
@@ -524,6 +531,7 @@ async function UpdateApi(filterdata, UpdateArray = Array) {
     }
     create_container.classList.add("hidden");
     overlay.classList.add("hidden");
+    DisplayLoading();
     const book_response = await fetch(
       `${Render_url}api/update/${filterdata}/${UpdateArray[0]}/${
         UpdateArray[1]
@@ -534,6 +542,7 @@ async function UpdateApi(filterdata, UpdateArray = Array) {
       `${Render_url}api/book_id/${UpdateArray[0]}`,
       "GET"
     );
+    HiddenLoading();
     console.log(UpdateApiData);
     DisplayContent(UpdateApiData);
   } catch (error) {
@@ -555,3 +564,23 @@ async function ResetData() {
 reset_btn.addEventListener("click", () => {
   ResetData();
 });
+
+function AlertWindows(message = String) {
+  PopUpAlertWindows.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  PopUpAlertWindows.innerHTML = `
+  <div class="alert_windows">   
+    <div class="alert_content">
+      <p>${message}</p>
+    </div>
+    <div class="alert_enter_btn">
+      <span>OK</span>
+    </div>
+  </div>
+  `;
+  const Alert_Enter_btn = document.querySelector(".alert_enter_btn");
+  Alert_Enter_btn.addEventListener("click", () => {
+    PopUpAlertWindows.classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
+}

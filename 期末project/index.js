@@ -22,6 +22,7 @@ const BorrowWindows = document.querySelector(".borrowData");
 const Borrow_container = document.querySelector(".borrow_table");
 const InsertRandomData = new RandomData();
 const Borrowclose_btn = document.querySelector(".close");
+const PopUpAlertWindows = document.querySelector(".PopUpAlertWindows");
 let itemPage = 1;
 const Render_url = "https://library-system-x1f7.onrender.com/";
 
@@ -260,12 +261,14 @@ async function CreateInfo(title, data) {
         result_Author.style.border = "1px solid red";
         result_Class.style.border = "1px solid red";
       }
+
       const response = await fetch(
         `${Render_url}api/post/book/${result_Id.value}/${result_Name.value}/${
           result_Author.value
         }/${encodeURI(result_Class.value)}`,
         { method: "POST" }
       );
+
       response.status !== 200 ? false : loading.classList.add("hidden"),
         overlay.classList.add("hidden"),
         create_container.classList.add("hidden");
@@ -273,6 +276,7 @@ async function CreateInfo(title, data) {
       const create_data = await FetchApi(
         `${Render_url}api/book_id/${result_Id.value}`
       );
+      data_status.classList.add("hidden");
       DisplayContent(create_data);
     } else if (title === "編輯資料") {
       /** @type {Array.<string>} */
@@ -403,11 +407,12 @@ async function SelectInfoValue() {
  */
 function datacheck(dataArray = Object) {
   const new_response = Object.values(dataArray);
-  console.log("1 ");
-  new_response.length === 0
-    ? data_status.classList.remove("hidden")
-    : data_status.classList.add("hidden"),
-    DisplayContent(dataArray);
+  if (new_response.length === 0) {
+    data_status.classList.remove("hidden");
+    AlertWindows("找不到這筆資料");
+  } else {
+    data_status.classList.add("hidden"), DisplayContent(dataArray);
+  }
 }
 
 /**
@@ -424,12 +429,15 @@ search_btn.addEventListener("click", async () => {
   const Filter_input = FilterInput.value.trim();
   if (Filter_input === "") {
     let result = SelectOptionValue();
+    DisplayLoading();
     const response = await FetchApi(
       `${Render_url}api/classification/${result}`,
       "GET"
     );
-    PerpageDisplayData(1, response);
-    itemPage += 1;
+    HiddenLoading();
+    Object.values(response).length === 0
+      ? AlertWindows(`沒有${result}種類的書籍`)
+      : PerpageDisplayData(1, response);
   } else {
     SelectInfoValue();
   }
@@ -481,6 +489,7 @@ function DeleteApi(delete_column) {
   });
   check_btn.addEventListener("click", async () => {
     try {
+      DisplayLoading();
       const get_borrow_response = await fetch(
         `${Render_url}api/v2/borrowRecord/book_id=${delete_column}`
       );
@@ -492,12 +501,13 @@ function DeleteApi(delete_column) {
           )
         : false;
       console.log("delete success");
+      HiddenLoading();
       PopUpDeleteWindow.classList.add("hidden");
       overlay.classList.add("hidden");
       DataTable.innerHTML = "";
-
       data_status.classList.remove("hidden");
       const get_all_data = await FetchApi(`${Render_url}api/table`);
+      AlertWindows(`書籍編號為${delete_column}的資料已經被刪除`);
     } catch (error) {
       console.log(error);
     }
@@ -552,6 +562,7 @@ async function UpdateApi(filterdata, UpdateArray = Array) {
     }
     create_container.classList.add("hidden");
     overlay.classList.add("hidden");
+    DisplayLoading();
     const book_response = await fetch(
       `${Render_url}api/update/${filterdata}/${UpdateArray[0]}/${
         UpdateArray[1]
@@ -562,6 +573,7 @@ async function UpdateApi(filterdata, UpdateArray = Array) {
       `${Render_url}api/book_id/${UpdateArray[0]}`,
       "GET"
     );
+    HiddenLoading();
     console.log(UpdateApiData);
     DisplayContent(UpdateApiData);
   } catch (error) {
@@ -650,3 +662,23 @@ search_btn_inMenu.addEventListener("click", async () => {
   container.innerHTML = `
   <iframe src="./page/bookData.html" frameborder="no" scrolling="no" allowtransparency="yes" width="1050px" height="1000px" />`;
 });
+
+function AlertWindows(message = String) {
+  PopUpAlertWindows.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  PopUpAlertWindows.innerHTML = `
+  <div class="alert_windows">   
+    <div class="alert_content">
+      <p>${message}</p>
+    </div>
+    <div class="alert_enter_btn">
+      <span>OK</span>
+    </div>
+  </div>
+  `;
+  const Alert_Enter_btn = document.querySelector(".alert_enter_btn");
+  Alert_Enter_btn.addEventListener("click", () => {
+    PopUpAlertWindows.classList.add("hidden");
+    overlay.classList.add("hidden");
+  });
+}
