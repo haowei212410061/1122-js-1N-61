@@ -100,7 +100,7 @@ async function SearchAPi() {
     console.log(filterSelect.value);
     DisplayLoading();
     const response = await FetchApi(
-      `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
+      `${Render_url}api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
     HiddenLoading();
@@ -110,7 +110,7 @@ async function SearchAPi() {
   } else if (filterSelect.value === "id" && InputBox.value !== "") {
     DisplayLoading();
     const response = await FetchApi(
-      `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
+      `${Render_url}api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
     HiddenLoading();
@@ -120,7 +120,7 @@ async function SearchAPi() {
   } else if (filterSelect.value === "borrow_status" && InputBox.value !== "") {
     DisplayLoading();
     const response = await FetchApi(
-      `${Render_url}/api/v3/borrowReocrd/${
+      `${Render_url}api/v3/borrowReocrd/${
         filterSelect.value
       }/${encodeURIComponent(InputBox.value)}`,
       "GET"
