@@ -476,8 +476,8 @@ tbody {
 
 .loading {
     position: absolute;
-    top: 55%;
-    left: 50%;
+    top: 40%;
+    left: 35%;
     width: 80px;
     height: 80px;
     border: 16px solid rgb(255, 255, 255);
