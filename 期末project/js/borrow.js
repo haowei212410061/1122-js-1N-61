@@ -7,7 +7,9 @@ const search_btn = document.querySelector(".search_btn");
 const search_all = document.querySelector(".search_all");
 const next_btn = document.querySelector(".next_btn");
 const last_btn = document.querySelector(".last_btn");
+const Render_url = "https://library-system-x1f7.onrender.com/";
 let itemPage = 1;
+
 async function FetchApi(url, method) {
   try {
     const response = await fetch(url, { method: method });
@@ -78,7 +80,7 @@ async function SearchAPi() {
   if (filterSelect.value === "user_id" && InputBox.value !== "") {
     console.log(filterSelect.value);
     const response = await FetchApi(
-      `http://localhost:3000/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
+      `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
     console.log(response);
@@ -86,7 +88,7 @@ async function SearchAPi() {
     DisplayData(response);
   } else if (filterSelect.value === "id" && InputBox.value !== "") {
     const response = await FetchApi(
-      `http://localhost:3000/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
+      `${Render_url}/api/v3/borrowReocrd/${filterSelect.value}/${InputBox.value}`,
       "GET"
     );
 
@@ -95,7 +97,7 @@ async function SearchAPi() {
     DisplayData(response);
   } else if (filterSelect.value === "borrow_status" && InputBox.value !== "") {
     const response = await FetchApi(
-      `http://localhost:3000/api/v3/borrowReocrd/${
+      `${Render_url}/api/v3/borrowReocrd/${
         filterSelect.value
       }/${encodeURIComponent(InputBox.value)}`,
       "GET"
@@ -117,10 +119,7 @@ search_btn.addEventListener("click", () => {
  * @todo 搜尋全部的資料
  */
 async function SearchAll() {
-  const response = await FetchApi(
-    `http://localhost:3000/api/borrowRecord`,
-    "GET"
-  );
+  const response = await FetchApi(`${Render_url}api/borrowRecord`, "GET");
   return response;
 }
 /**實現分頁功能 */
