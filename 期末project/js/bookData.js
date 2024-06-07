@@ -15,6 +15,7 @@ const BorrowWindows = document.querySelector(".borrowData_bookPage");
 const Borrow_container = document.querySelector(".borrow_table");
 const close_btn = document.querySelector(".close");
 const Render_url = "https://library-system-x1f7.onrender.com/";
+const PopUpAlertWindows = document.querySelector(".PopUpAlertWindows");
 let itempage = 1;
 /**-----------------------------------------------------------
 

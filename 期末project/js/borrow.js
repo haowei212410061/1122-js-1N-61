@@ -8,6 +8,8 @@ const search_all = document.querySelector(".search_all");
 const next_btn = document.querySelector(".next_btn");
 const last_btn = document.querySelector(".last_btn");
 const Render_url = "https://library-system-x1f7.onrender.com/";
+const loading = document.querySelector(".loading");
+const overlay = document.querySelector(".overlay");
 let itemPage = 1;
 
 async function FetchApi(url, method) {
