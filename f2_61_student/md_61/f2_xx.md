@@ -160,7 +160,7 @@ select * from blog_f2_xx;
 ##### => git log
 
 ```
-
+8bf80ed 212410061       Thu Jun 13 19:48:09 2024 +0800  用 SQL 指令取得 blog_f2_xx 所有資料
 ```
 
 ---
