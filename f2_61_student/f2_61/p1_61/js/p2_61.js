@@ -4,8 +4,8 @@ const item = document.querySelector('.items');
 const getProductsSupabase_61 = async () => {
   try {
     let { data, error } = await _supabase.from('store_f2_61').select('*');
+    return data; // return the fetched data, not product_61
     console.log(data);
-    return data;
   } catch (error) {
     console.log(error);
   }
