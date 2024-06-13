@@ -101,7 +101,7 @@
 ##### => git log
 
 ```
-04cf0dc 212410061       Thu Jun 13 19:22:09 2024 +0800  佈署 w15 product demo 到 Vercel
+e93df06 212410061       Thu Jun 13 19:23:44 2024 +0800   My Github URL for git logs，標註本學期 git log 次數
 ```
 
 ---
@@ -125,6 +125,7 @@
 ##### => git log
 
 ```
+04cf0dc 212410061       Thu Jun 13 19:22:09 2024 +0800  佈署 w15 product demo 到 Vercel
 
 ```
 
