@@ -259,7 +259,8 @@ value =5, category = 'mens'
 ##### => git log
 
 ```
-
+71134bd 212410061       Thu Jun 13 20:51:46 2024 +0800  P2: 實作靜態畫面，點選上方選單 Shop_xx, logo 及主頁面的某 category，可以正
+常切換
 ```
 
 ---
